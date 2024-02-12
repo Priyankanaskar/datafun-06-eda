@@ -5,14 +5,16 @@
  Created By Priyanka Naskar
  
  Date 2/12/2024
+
 # Deliverable Names
 GitHub Repository: datafun-06-eda
 
 Documentation: README.md
 
 Notebook: naskar_eda.ipynb
+
 # External Dependencies
-upyterlab
+jupyterlab
 
 pandas
 
@@ -24,27 +26,42 @@ seaborn
 import matplotlib as plt
 import pandas as pd
 import seaborn as sns
+
 # Exploratory Data Analysis
 # Load the dataset into a pandas DataFrame - adjust this process for your custom data
+
 df = sns.load_dataset('iris')
 
 # Inspect first rows of the DataFrame
+
 print(df.head())
 
 The dataset contains information about iris flowers, including sepal length, sepal width, petal length, petal width, and species.Each row represents a unique iris flower, and the columns provide numerical measurements for different attributes.
+
 # Initial Data Inspection
 
 print(df.head(10))
+
 print(df.shape)
+
 print(df.dtypes)
+
 This displays the first 10 rows of the DataFrame. It allows you to observe the initial records in the dataset, providing a snapshot of the data.
+
 # Initial Descriptive Statistics
+
 print(df.describe())
+
 This function provides a summary of basic statistical measures for each numerical column in the DataFrame. 
+
 # Initial Data Distribution for Numerical Columns
+
 import matplotlib.pyplot as plt
+
 import pandas as pd
+
 import seaborn as sns
+
 
 # Load the dataset into a pandas DataFrame
 df = sns.load_dataset('iris')
@@ -136,4 +153,4 @@ These visualizations provide valuable insights that can guide further analysis a
 
 
 Push to github repository
-In terminal comment git add. git commit -m"update README.md" git push origin main
+In terminal comment git add . git commit -m"update README.md" git push origin main
