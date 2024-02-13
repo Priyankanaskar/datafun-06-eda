@@ -18,7 +18,7 @@ This EDA will analyze The Iris Dataset is very simple often referred to as the H
 
 
 # EDA on Iris Dataset
-First, let's load the dataset from the CSV file "iris_csv.csv" using pandas and have a general overview of it.
+First, let's load the dataset from the CSV file "iris.csv" using pandas and have a general overview of it.
 
 The dataset can be downloaded from the below link.
 
