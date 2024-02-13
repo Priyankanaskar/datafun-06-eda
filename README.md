@@ -22,7 +22,8 @@ First, let's load the dataset from the CSV file "iris_csv.csv" using pandas and 
 
 The dataset can be downloaded from the below link.
 
-https://datahub.io/machine-learning/iris/r/iris.csv
+https://www.kaggle.com/code/ash316/ml-from-scratch-with-iris
+
 
 # External Dependencies
 jupyterlab
