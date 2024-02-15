@@ -5,6 +5,10 @@
  Created By Priyanka Naskar
  
  Date 2/12/2024
+# Explore Datasets
+ThisEDA will analyze the "penguins" dataset from the Seaborn library. It contains information about  diffrernt types pf penguin specis.you can found this data set in this belowe link
+
+(https://github.com/mwaskom/seaborn-data/blob/master/penguins.csv)
 
 # Deliverable Names
 GitHub Repository: datafun-06-eda
@@ -14,11 +18,11 @@ Documentation: README.md
 Notebook: naskar_eda.ipynb
 
 # Deta set description
-In this EDA  the penguins dataset  revealed valuable insights into the characteristics of different penguin species. 
+In this EDA  the penguins dataset  revealed valuable insights into the characteristics of different penguin species. First, let's load the dataset from the file "penguins.csv" using pandas and have a general overview of it.
+Here is some table view of this data set
+![alt text](image.png)
 
 
-# EDA on Penguin Dataset
-First, let's load the dataset from the file "penguins.csv" using pandas and have a general overview of it.
  # External Dependencies
 
 import numpy as np
