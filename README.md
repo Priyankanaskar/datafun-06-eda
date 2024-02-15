@@ -14,71 +14,52 @@ Documentation: README.md
 Notebook: naskar_eda.ipynb
 
 # Deta set description
-This EDA will analyze The Iris Dataset is very simple often referred to as the Hello World. The dataset has 4 features of three different species of flowers namely Iris setosa, Iris virginica, and Iris versicolor. These features are sepal length, sepal width, petal length, and petal width. There are 150 data points in the dataset, 50 data points for each species.
+In this EDA  the penguins dataset  revealed valuable insights into the characteristics of different penguin species. 
 
 
-# EDA on Iris Dataset
-First, let's load the dataset from the CSV file "iris.csv" using pandas and have a general overview of it.
+# EDA on Penguin Dataset
+First, let's load the dataset from the file "penguins.csv" using pandas and have a general overview of it.
+ # External Dependencies
 
-The dataset can be downloaded from the below link.
-
-https://www.kaggle.com/code/ash316/ml-from-scratch-with-iris
-
-
-# External Dependencies
-jupyterlab
-
-pandas
-
-pyarrow
-
-matplotlib
-
-seaborn
-
-import matplotlib as plt
+import numpy as np
 import pandas as pd
+
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+
 import seaborn as sns
+import seaborn.objects as so
 
 # Exploratory Data Analysis
-# Load the dataset into a pandas DataFrame - adjust this process for your custom data
 
+Perform a unique exploratory data analysis project using the tools and skills covered previously.
 
-df = pd.read_csv("iris_csv.csv") 
+#  Data Acquisition
+
+import seaborn as sns
+df = sns.load_dataset("penguins")
+
 # Inspect first rows of the DataFrame
 
 print(df.head())
 
-The dataset contains information about iris flowers, including sepal length, sepal width, petal length, petal width, and species.Each row represents a unique iris flower, and the columns provide numerical measurements for different attributes.
-
 # Initial Data Inspection
 
+
 print(df.head(10))
-
 print(df.shape)
-
 print(df.dtypes)
+print(df.info)
 
-This displays the first 10 rows of the DataFrame. It allows you to observe the initial records in the dataset, providing a snapshot of the data.
-
-# Initial Descriptive Statistics
+# 3. Initial Descriptive Statistics
 
 print(df.describe())
 
-This function provides a summary of basic statistical measures for each numerical column in the DataFrame. 
-
 # Initial Data Distribution for Numerical Columns
 
-import matplotlib.pyplot as plt
+# Inspect histogram by numerical column
 
-import pandas as pd
-
-import seaborn as sns
-
-
-# Inspect histogram for a specific numerical column (e.g., 'sepal_length')
-
-df['sepal_length'].hist()
+df['bill_length_mm'].hist()
 
 # Inspect histograms for all numerical columns
 
@@ -88,17 +69,11 @@ df.hist()
 
 plt.show()
 
- This is Multiple histograms, one for each numerical column in the dataset.
-A visual overview of the distributions of sepal length, sepal width, petal length, and petal width.
-Insights into the central tendency, spread, and potential outliers in each numerical feature.
-
 # Initial Data Distribution for Categorical Columns
 # Inspect value counts by categorical column
-
 df['species'].value_counts()
 
 # Inspect value counts for all categorical columns
-
 for col in df.select_dtypes(include=['object', 'category']).columns:
     # Display count plot
     sns.countplot(x=col, data=df)
@@ -106,92 +81,43 @@ for col in df.select_dtypes(include=['object', 'category']).columns:
     plt.show()
 
 # Show all plots
-
 plt.show()
-This is histograme Shows the count of each unique species in the 'species' column.
-Provides insights into the distribution of different iris species in the dataset.
-# Rename one column
+
+# Rename column.
+
 
 def rename_column(df, old_column, new_column):
     df = df.rename(columns={old_column: new_column})
     return df
 
-
-# Rename the 'sepal_length' column to 'sepal_length_new'
-
-df = rename_column(df, 'sepal_length', 'sepal_length_new')
-
+# Rename the 'bill_length_mm' column to 'bill_length'
+df = rename_column(df, 'bill_length_mm', 'bill_length')
+#Rename the 'body_mass_g'column to 'body_mass'
+df = rename_column(df, 'body_mass_g', 'body_mass')
 print(df.dtypes)
-Rename the column "sepal_length" to "sepal_length_new"
+
+# Inserting a column
+
 
 # Insert a new column 'new_column' with dummy values
-
-df['beautification'] = 'yes'
+df['colour'] = 'black and white'
 
 # Print the DataFrame to verify the new column
-
 print(df.head())
 
-# Load the dataset into a pandas DataFrame - adjust this process for your custom data
-
-df = sns.load_dataset('iris')
-
-# Insert a new column 'new_column' with dummy values
-
-df['colours'] = "red"
-
-# Inspect first rows of the DataFrame
-
-print(df.head())
-
-Inthis colum I added one column "colours" with column value "red"
-So, in this table sentosa colours red.
-
-# Initial Visualizations
-
-sns.pairplot(df, hue='species')
+# Step 7. Initial Visualizations
+list1 = ["bill_length", "bill_depth_mm", "flipper_length_mm", "body_mass"]
+sns.heatmap(df[list1].corr(),annot = True, fmt = ".2f")
 plt.show()
 
-Observations: Pair Plot Analysis
+sns.scatterplot(x = "bill_length", y = "bill_depth_mm", data = df, hue = "species")
+plt.title("Bill Length vs Bill Depth By Species", size=15, color="purple")
+plt.show()
 
-The pair plot above provides a visual overview of the relationships between pairs of features in the Iris dataset, with different species distinguished by color.
-
-Sepal Length and Sepal Width
-
-Setosa species generally shows distinct clusters, especially in sepal length and sepal width. Versicolor and Virginica species exhibit some overlap, particularly in sepal length.
-
-Petal Length and Petal Width
-
-Clear separation between Setosa and the other species in petal length and petal width. Versicolor and Virginica show some overlap but are generally distinguishable.
-
-Sepal Length vs. Petal Length
-
-Positive correlation between sepal length and petal length across all species. Setosa generally has shorter petals compared to Versicolor and Virginica.
-
-Sepal Width vs. Petal Width
-
-No strong correlation between sepal width and petal width. Setosa has a smaller range in petal width compared to the other species.
-General Insights
-
-The pair plot highlights distinct patterns and relationships between features for different Iris species.
-
-Petal measurements seem to be more effective in differentiating between species compared to sepal measurements.
-
-These visualizations provide valuable insights that can guide further analysis and feature selection in the explorat
+sns.scatterplot(x = "bill_length", y = "bill_depth_mm", data = df, hue = "island")
+plt.title("Bill Length vs Bill Depth By Island", size=15, color="purple")
+plt.show()
 
 
-Push to github repository
-In terminal comment git add . git commit -m"update README.md" git push origin main
-
-
-# Contributing
-We welcome contributions to this project. If you have suggestions to improve the analysis or encounter issues, please open an issue or submit a pull request.
-
-# References & Acknowledgments
-Special thanks to OpenAI for assistance with project design and coding structure. Additional references used for this project include
-
-JUPYTER.md for Jupyter Notebook keyboard shortcuts and recommendations.
-
-MARKDOWN.md for Markdown syntax and recommendations
-
-Data Visualization using Python, Matplotlib and Seaborn for visualization project ideas.
+# Conclusion
+In conclusion, the analysis of the penguins dataset revealed valuable insights into the characteristics of different penguin species. Key findings include variations in bill measurements, body mass, and species distribution. Notably, the dataset exhibited a diverse representation of Adelie, Chinstrap, and Gentoo penguins, with distinct patterns in their physical attributes. Further analysis could explore correlations between features and potentially leverage this information for predictive modeling. Despite the comprehensive exploration, it's essential to acknowledge potential limitations, such as missing values in certain columns. Overall, this analysis serves as a foundation for deeper investigations into penguin biology and behavior.
