@@ -1,5 +1,4 @@
 # datafun-06-eda
-**Overview**
 
  Project 6 is an opportunity to create your own custom exploratory data analysis (EDA) project using GitHub, Git, Jupyter, pandas, Seaborn and other popular data analytics tools.
 
@@ -17,11 +16,11 @@ Here is some table view of this data set
 ![alt text](image.png)
 
 # Project Structure & Deliverables 
- **README.md**:  Provides an overview of the project and instructions for setting up the environment and running the notebook.
+ **README.md*:  Provides an overview of the project and instructions for setting up the environment and running the notebook.
 
- **requirements.txt:** Lists all the Python packages required for the project.
+ **requirements.txt:* Lists all the Python packages required for the project.
 
- **naskar_eda.ipynb:**  The Jupyter Notebook containing the EDA for the Planets dataset.
+ **naskar_eda.ipynb:*  The Jupyter Notebook containing the EDA for the Planets dataset.
 
  # Environment Setup and How to Install and Run the Project
  Create a new GitHub repository named datafun-06-eda.
@@ -34,87 +33,78 @@ Create a Project Virtual Environment in the .venv folder.
 
 Activate the Project Virtual Environment.
 
-# . Freeze your requirements to requirements.txt. 
-**py -m venv .venv
-**
-**.\.venv\Scripts\Activate.ps1
-**
-**py -m pip install requests
-**
-**py -m pip freeze > requirements.txt
-**
-# .Install dependencies
+Freeze your requirements to requirements.txt. 
 
-```python
-**py -m pip install jupyterlab numpy pandas matplotlib seaborn scipy pyarrow plotly bokeh scikit-learn holoviews datashader altair
+**py -m venv .venv*
 
-```**
- Add a useful .gitignore to the root project folder.
+**.\.venv\Scripts\Activate.ps1*
 
- Start Jupyter: Do both methods. Both methods must be available.
+**py -m pip install requests*
 
- Method 1:
+**py -m pip freeze > requirements.txt*
+
+# insert Dependencies
+
+`py -m pip install jupyterlab numpy pandas matplotlib seaborn scipy pyarrow plotly bokeh scikit-learn holoviews datashader altair`
+
+Add a useful .gitignore to the root project folder.
+
+Start Jupyter: Do both methods. Both methods must be available.
+
+Method 1:
   Start Jupyter in VS Code: Open project folder in VS code, Install Jupyter extension in VS code (if not already installed), Open VS Code Terminal window, and run jupyter lab in integrated terminal.
 
- Method 2:
+Method 2:
   Start Jupyter in Native Terminal (without VS Code): Open machine terminal in project folder, Start Jupyter Notebook server by running: jupyter lab; Default brower will open to Jupyter Notebook interface.
 
-# Data Analysis Workflow
+**Data Analysis Workflow*
 The Jupyter Notebook follows a structured approach to EDA, consisting of the following steps:
 
-**Data Acquisition:** Loading the Planets dataset into a pandas DataFrame.
-```python
-import seaborn as sns
-df = sns.load_dataset("penguins")```
+**Data Acquisition:* Loading the Planets dataset into a pandas DataFrame.
 
-**Initial Data Inspection:** Exploring the dataset's basic properties.
+``import seaborn as sns`
+`df = sns.load_dataset("penguins")`
 
- ```python
- print(df.head())```
+**Initial Data Inspection:* Exploring the dataset's basic properties.
 
-**Descriptive Statistics: ** Summarizing the central tendency, dispersion, and shape of the dataset's distribution.
+` print(df.head())`
 
- ```python
- print(df.describe())```
+**Descriptive Statistics:* Summarizing the central tendency, dispersion, and shape of the dataset's distribution.
 
-**Data Distribution Analysis:** Visualizing the distribution of data through histograms and count plots.
+ `print(df.describe())`
 
- ```python
-# Inspect histogram by numerical column
-df['bill_length_mm'].hist()
+**Data Distribution Analysis:* Visualizing the distribution of data through histograms and count plots.
 
-# Inspect histograms for all numerical columns
-df.hist()
+`df['bill_length_mm'].hist()`
 
-# Show all plots
-plt.show()```
+#Inspect histograms for all numerical columns
+`df.hist()`
+
+#Show all plots
+`plt.show()`
 
 **Data Transformation and Feature Engineering:** Enhancing the dataset with additional features and transformations for better analysis.
 
-```python
-df.head(20)
-df.columns[df.isnull().any()]
-df.isnull().sum() ```
+`df.head(20)`
+`df.columns[df.isnull().any()]`
+`df.isnull().sum()`
 
 **Visual Analysis:** Using various plots such as pairplots and heatmaps to visualize relationships between features.
 
-```python
-list1 = ["bill_length", "bill_depth_mm", "flipper_length_mm", "body_mass"]
-sns.heatmap(df[list1].corr(),annot = True, fmt = ".2f")
-plt.show() ```
-
+`list1 = ["bill_length", "bill_depth_mm", "flipper_length_mm", "body_mass"]
+`sns.heatmap(df[list1].corr(),annot = True, fmt = ".2f")
+plt.show()`
 
 ***Storytelling and Presentation:*** Narrating the data story based on insights derived from the visual analysis.
 
-```python
-plt.figure(figsize=(10, 6))
+`plt.figure(figsize=(10, 6))
 sns.boxplot(data=df_cleaned, x='species', y='body_mass_g')
 plt.title('Body Mass by Species')
 plt.xlabel('Species')
 plt.ylabel('Body Mass (g)')
-plt.show()```
+plt.show()`
 
-** Conclusion:** Summarizing the findings and the potential for further analysis.
+**Conclusion:** Summarizing the findings and the potential for further analysis.
 
 # Contributing
 
@@ -126,9 +116,9 @@ Special thanks to **OpenAI** for assistance with project design and coding struc
 
 **JUPYTER.md** for Jupyter Notebook keyboard shortcuts and recommendations.
 
-**MARKDOWN.md **for Markdown syntax and recommendations.
+**MARKDOWN.md**for Markdown syntax and recommendations.
 
-**https://seaborn.pydata.org/tutorial.html **  for visualization project ideas.
+**https://seaborn.pydata.org/tutorial.html**  for visualization project ideas.
 
 **https://seaborn.pydata.org/tutorial.html** for assistance with plotting functions.
 
