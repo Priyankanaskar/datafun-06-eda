@@ -10,118 +10,86 @@ ThisEDA will analyze the "penguins" dataset from the Seaborn library. It contain
 
 (https://github.com/mwaskom/seaborn-data/blob/master/penguins.csv)
 
-# Deliverable Names
-GitHub Repository: datafun-06-eda
-
-Documentation: README.md
-
-Notebook: naskar_eda.ipynb
 
 # Deta set description
 In this EDA  the penguins dataset  revealed valuable insights into the characteristics of different penguin species. First, let's load the dataset from the file "penguins.csv" using pandas and have a general overview of it.
 Here is some table view of this data set
 ![alt text](image.png)
 
+# Project Structure & Deliverables 
 
- # External Dependencies
+ README.md:  Provides an overview of the project and instructions for setting up the environment and running the notebook.
 
-import numpy as np
-import pandas as pd
+ requirements.txt: Lists all the Python packages required for the project.
 
-import matplotlib as mpl
-import matplotlib.pyplot as plt
+ naskar_eda.ipynb  The Jupyter Notebook containing the EDA for the Planets dataset.
 
-import seaborn as sns
-import seaborn.objects as so
+ # Environment Setup and How to Install and Run the Project
 
-# Exploratory Data Analysis
+Create a new GitHub repository named datafun-06-eda.
 
-Perform a unique exploratory data analysis project using the tools and skills covered previously.
+Clone the repository to your local machine.
 
-#  Data Acquisition
+# git clone  (https://github.com/Priyankanaskar/datafun-06-eda)
 
-import seaborn as sns
-df = sns.load_dataset("penguins")
+# . Create a Project Virtual Environment in the .venv folder.
 
-# Inspect first rows of the DataFrame
+# . Activate the Project Virtual Environment.
 
-print(df.head())
+# . Freeze your requirements to requirements.txt. 
 
-# Initial Data Inspection
-
-
-print(df.head(10))
-print(df.shape)
-print(df.dtypes)
-print(df.info)
-
-# 3. Initial Descriptive Statistics
-
-print(df.describe())
-
-# Initial Data Distribution for Numerical Columns
-
-# Inspect histogram by numerical column
-
-df['bill_length_mm'].hist()
-
-# Inspect histograms for all numerical columns
-
-df.hist()
-
-# Show all plots
-
-plt.show()
-
-# Initial Data Distribution for Categorical Columns
-# Inspect value counts by categorical column
-df['species'].value_counts()
-
-# Inspect value counts for all categorical columns
-for col in df.select_dtypes(include=['object', 'category']).columns:
-    # Display count plot
-    sns.countplot(x=col, data=df)
-    plt.title(f'Distribution of {col}')
-    plt.show()
-
-# Show all plots
-plt.show()
-
-# Rename column.
+py -m venv .venv
+.\.venv\Scripts\Activate.ps1
+py -m pip install requests
+py -m pip freeze > requirements.txt
 
 
-def rename_column(df, old_column, new_column):
-    df = df.rename(columns={old_column: new_column})
-    return df
+# .Install dependencies
 
-# Rename the 'bill_length_mm' column to 'bill_length'
-df = rename_column(df, 'bill_length_mm', 'bill_length')
-#Rename the 'body_mass_g'column to 'body_mass'
-df = rename_column(df, 'body_mass_g', 'body_mass')
-print(df.dtypes)
+py -m pip install jupyterlab numpy pandas matplotlib seaborn scipy pyarrow plotly bokeh scikit-learn holoviews datashader altair
 
-# Inserting a column
+ # Add a useful .gitignore to the root project folder.
+ Start Jupyter: Do both methods. Both methods must be available.
 
+ Method 1:
+  Start Jupyter in VS Code: Open project folder in VS code, Install Jupyter extension in VS code (if not already installed), Open VS Code Terminal window, and run jupyter lab in integrated terminal.
 
-# Insert a new column 'new_column' with dummy values
-df['colour'] = 'black and white'
+ Method 2:
+  Start Jupyter in Native Terminal (without VS Code): Open machine terminal in project folder, Start Jupyter Notebook server by running: jupyter lab; Default brower will open to Jupyter Notebook interface.
 
-# Print the DataFrame to verify the new column
-print(df.head())
+# Data Analysis Workflow
+ The Jupyter Notebook follows a structured approach to EDA, consisting of the following steps:
 
-# Step 7. Initial Visualizations
-list1 = ["bill_length", "bill_depth_mm", "flipper_length_mm", "body_mass"]
-sns.heatmap(df[list1].corr(),annot = True, fmt = ".2f")
-plt.show()
+# Data Acquisition: Loading the Planets dataset into a pandas DataFrame.
 
-sns.scatterplot(x = "bill_length", y = "bill_depth_mm", data = df, hue = "species")
-plt.title("Bill Length vs Bill Depth By Species", size=15, color="purple")
-plt.show()
+# Initial Data Inspection: Exploring the dataset's basic properties.
 
-sns.scatterplot(x = "bill_length", y = "bill_depth_mm", data = df, hue = "island")
-plt.title("Bill Length vs Bill Depth By Island", size=15, color="purple")
-plt.show()
+# Descriptive Statistics: Summarizing the central tendency, dispersion, and shape of the dataset's distribution.
 
+# Data Distribution Analysis: Visualizing the distribution of data through histograms and count plots.
 
-# Conclusion
-In conclusion, the analysis of the penguins dataset revealed valuable insights into the characteristics of different penguin species. Key findings include variations in bill measurements, body mass, and species distribution. Notably, the dataset exhibited a diverse representation of Adelie, Chinstrap, and Gentoo penguins, with distinct patterns in their physical attributes. Further analysis could explore correlations between features and potentially leverage this information for predictive modeling. Despite the comprehensive exploration, it's essential to acknowledge potential limitations, such as missing values in certain columns. Overall, this analysis serves as a foundation for deeper investigations into penguin biology and behavior.
+# Data Transformation and Feature Engineering: Enhancing the dataset with additional features and transformations for better analysis.
+
+# Visual Analysis: Using various plots such as pairplots and heatmaps to visualize relationships between features.
+
+# Storytelling and Presentation: Narrating the data story based on insights derived from the visual analysis.
+
+# Conclusion: Summarizing the findings and the potential for further analysis.
+
+# Contributing
+
+ We welcome contributions to this project. If you have suggestions to improve the analysis or encounter issues, please open an issue or submit a pull request.
+
+# References & Acknowledgments
+
+Special thanks to OpenAI for assistance with project design and coding structure. Additional references used for this project include:
+
+JUPYTER.md for Jupyter Notebook keyboard shortcuts and recommendations.
+
+MARKDOWN.md for Markdown syntax and recommendations.
+
+https://seaborn.pydata.org/tutorial.htmlfor visualization project ideas.
+
+https://seaborn.pydata.org/tutorial.html for assistance with plotting functions.
+
+And Special Thanks To Dr.Case https://github.com/denisecase/datafun-06-spec for complete guidence.
