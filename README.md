@@ -14,6 +14,7 @@ ThisEDA will analyze the "penguins" dataset from the Seaborn library. It contain
 # Deta set description
 In this EDA  the penguins dataset  revealed valuable insights into the characteristics of different penguin species. First, let's load the dataset from the file "penguins.csv" using pandas and have a general overview of it.
 Here is some table view of this data set
+
 ![alt text](image.png)
 
 # Project Structure & Deliverables 
